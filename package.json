@@ -1,0 +1,30 @@
+{
+  "name": "koa-middleware-sst",
+  "module": "./src/index.ts",
+  "license": "CC0-1.0",
+  "type": "module",
+  "scripts": {
+    "prepare": "husky install",
+    "test": "bun test",
+    "lint": "eslint . --fix",
+    "format": "prettier . --write"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.12",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "bun-types": "latest",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^8.0.3",
+    "servez": "^2.1.2",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "eslint": "^8.55.0",
+    "koa": "^2.14.2",
+    "prettier": "^3.1.1"
+  }
+}
