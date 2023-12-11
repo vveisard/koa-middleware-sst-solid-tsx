@@ -1,6 +1,6 @@
 {
   "name": "koa-middleware-sst-solid-tsx",
-  "description": "Koa.js middleware for server-side transformation (SST) of Solid TSX using Bun.",
+  "description": "Koa.js middleware for server-side transformation (SST) of solid-js TSX using Bun.",
   "license": "CC0-1.0",
   "type": "module",
   "scripts": {
