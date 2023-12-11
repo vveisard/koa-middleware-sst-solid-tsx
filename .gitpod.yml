@@ -1,0 +1,11 @@
+image: gitpod/workspace-bun
+
+tasks:
+  - name: Install dependencies then run "prepare" script.
+    init: |
+      bun install  
+      bun run prepare
+
+ports:
+  - port: 8000
+    onOpen: open-preview
