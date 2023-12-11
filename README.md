@@ -1,6 +1,6 @@
 # koa-middleware-sst-solid-tsx
 
-Koa.js middleware for server-side transformation (SST) of (solid-js)[https://www.solidjs.com/] TSX using Bun.
+Koa.js middleware for server-side transformation (SST) of [solid-js](https://www.solidjs.com/) TSX using Bun.
 
 # Development
 
