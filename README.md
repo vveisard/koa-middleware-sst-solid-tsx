@@ -1,10 +1,12 @@
-# koa-sst
+# koa-middleware-sst-typescript
+
+Koa.js middleware for server-side transformation (SST) of TypeScript using Bun.
 
 # Development
 
 ## Prerequisites
 
-Install [Bun](https://bun.sh/):
+1. Install [Bun](https://bun.sh/):
 
 ```bash
 curl -fsSL https://bun.sh/install | bash.
@@ -12,16 +14,29 @@ curl -fsSL https://bun.sh/install | bash.
 
 ## Setup
 
-To install dependencies:
+1. Install dependencies:
 
 ```bash
 bun install
 ```
 
-## Run
-
-To run:
+2. Run "prepare":
 
 ```bash
-bun run ./src/index.ts
+bun run prepare
 ```
+
+## Serve
+
+To serve any of the example apps, cd into the directory, then run `bun run start`.
+
+eg, to run the "hello-world" example app
+
+```bash
+cd ./apps/hello-world
+bun run start
+```
+
+# Workspace
+
+This workspace is setup like a monorepo, but only contains one "library" package (`koa-middleware-sst-typescript`), and "example" apps.
