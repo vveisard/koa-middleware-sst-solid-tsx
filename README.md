@@ -39,10 +39,10 @@ bun run start
 
 # Workspace
 
-This workspace is setup like a monorepo, but only contains one "library" package (`koa-middleware-sst-typescript`), and "example" apps.
+This workspace is setup like a monorepo, but only contains one "library" package (`koa-middleware-sst-solid-tsx`), and "example" apps.
 
 # Usage
 
-Bun's transpiler does not currently support solid-js, because lack of "jsx: preserve" (see (this bug)[https://github.com/oven-sh/bun/issues/5618])
+Bun's transpiler does not currently support solid-js, because lack of "jsx: preserve" (see [this issue](https://github.com/oven-sh/bun/issues/5618)).
 
-This middleware implements a (workaround)[https://github.com/oven-sh/bun/issues/5429#issuecomment-1766913274]. **Do not implement the workaround yourself.**
+This middleware implements a [workaround](https://github.com/oven-sh/bun/issues/5429#issuecomment-1766913274). **Do not implement the workaround yourself.**
