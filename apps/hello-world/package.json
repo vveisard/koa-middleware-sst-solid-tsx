@@ -6,8 +6,8 @@
   },
   "dependencies": {
     "koa": "^2.14.2",
-    "koa-static": "^5.0.0",
-    "koa-middleware-sst-typescript": "workspace:*"
+    "koa-middleware-sst-solid-tsx": "workspace:*",
+    "koa-static": "^5.0.0"
   },
   "devDependencies": {
     "@types/koa": "^2.13.12",

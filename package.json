@@ -1,5 +1,5 @@
 {
-  "name": "koa-middleware-sst-typescript",
+  "name": "koa-middleware-sst-solid-tsx",
   "license": "CC0-1.0",
   "scripts": {
     "prepare": "husky install",

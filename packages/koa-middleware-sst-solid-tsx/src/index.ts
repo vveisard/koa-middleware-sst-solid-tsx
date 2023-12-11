@@ -25,8 +25,18 @@ function readStreamToString(stream: ReadStream): Promise<string> {
 
 // @region-begin main
 
+/**
+ * @remarks Implements the workaround here: https://github.com/oven-sh/bun/issues/5429
+ */
 const transpiler = new Bun.Transpiler({
-  loader: "ts",
+  loader: "tsx",
+  tsconfig: {
+    compilerOptions: {
+      jsx: "preserve",
+      jsxImportSource: "solid-js/h",
+      jsxFactory: "h",
+    },
+  },
 });
 
 /**
@@ -37,23 +47,30 @@ const createMiddleware = (options: MiddlewareOptions) => {
   return async (ctx: ParameterizedContext, next: Next) => {
     await next();
 
-    if (!ctx.response.is("ts")) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const file: string | undefined = (ctx.response.body as any)?.file;
+
+    if (file === undefined) {
+      return;
+    }
+
+    if (!file.endsWith(".tsx")) {
       return;
     }
 
     const responseBody: unknown = ctx.response.body;
     if (typeof responseBody === "string") {
       const transformedCode = await transpiler.transform(responseBody);
-      ctx.response.body = transformedCode;
+      ctx.response.body = `import h from "solid-js/h";${transformedCode};`;
       ctx.response.type = "text/javascript";
     } else if (responseBody instanceof Uint8Array) {
       const transformedCode = await transpiler.transform(responseBody);
-      ctx.response.body = transformedCode;
+      ctx.response.body = `import h from "solid-js/h";${transformedCode};`;
       ctx.response.type = "text/javascript";
     } else if (responseBody instanceof ReadStream) {
       const initialCode = await readStreamToString(responseBody);
       const transformedCode = await transpiler.transform(initialCode);
-      ctx.response.body = transformedCode;
+      ctx.response.body = `import h from "solid-js/h";${transformedCode};`;
       ctx.response.type = "text/javascript";
     } else {
       throw new Error(
